@@ -4,14 +4,14 @@
 \usepackage[english, russian]{babel}
 \usepackage{amsthm}
 
-\title{Домашнее задание 1. Введение в алгебру логики}
+\title{Домашнее задание 1. \\ Введение в алгебру логики}
 \author{Балдин Виктор Б01-303}
 
 \begin{document}
     \maketitle
 
     \begin{enumerate}
-        \item Доказать, что
+        \item Доказать:
             \[1\oplus x_1 \oplus x_2 = (x_1 \to x_2) \wedge (x_2 \to x_1)\]
         \textbf{Доказательство: }
         \[1 \oplus x_1 \oplus x2 = \lnot(x1 \oplus x2) = x_1\leftrightarrow
@@ -19,9 +19,9 @@
         \[ (x_1 \to x_2) \wedge (x_2 \to x_1) = (\lnot x_1 
         \vee x_2) \wedge (\lnot x_2 \vee x_1) = \lnot 
         x_1 \wedge \lnot x_2 \vee x_1 \wedge x_2 = x_1 \leftrightarrow x_2\]
-        \qedsymbol{}
+        \qed
         
-        \item Проверить:
+        \item
         \subitem (a) \( x \wedge (y \to z) = (x \wedge y) \to
         (x \wedge z) \)
         \subitem (b) \( x \oplus (y \leftrightarrow z) = (x \oplus y) 
@@ -31,12 +31,45 @@
         \subitem (a) \( x \wedge (y \to z) = x \wedge (\lnot y \vee z)
         = x \wedge \lnot y \vee x \wedge z \neq \lnot(x \wedge y) \vee x \wedge
         z = (x \wedge y) \to (x \wedge z)\) -- \textit{ложно}
-        \subitem (b) \( x \oplus (y \leftrightarrow z) = 
-        \lnot(x \leftrightarrow (y \leftrightarrow z)) = 
-        \lnot(x \to (y \leftrightarrow z) \wedge (y \leftrightarrow z) \to
-        x) = \lnot(x \to (y \leftrightarrow z)) \vee 
-        \lnot((y \leftrightarrow z) \to x) = x \wedge (y \oplus z) \vee
-        (y \oplus z) \wedge x = x \wedge (y \oplus z) = \lnot ((x \wedge y)
-        \leftrightarrow (x \wedge z) )\)
+        \subitem (b)
+        \( f = x \oplus (y \leftrightarrow z) = 10010110 \\
+           g = (x \oplus y) \leftrightarrow (x \oplus z) = 10011001 \\
+           f \neq g
+        \) -- \textit{ложно}
+        
+        \item 
+        \subitem (a) \( 1 \to 0 \neq 0 \to 1\) нет
+        \subitem (b) \( x \to (y \to z) = \lnot x \vee (\lnot y \vee z)
+        = \lnot x \vee \lnot y \vee z = \lnot (x \wedge y) \vee z \neq \\
+        (x \to y) \to z = x \wedge \lnot y \vee z \)
+        нет
+
+        \item 
+        \subitem (a) \( y \)
+        \subitem (b) \( z \)
+        \subitem (c) \( k(x_1, x_2, x_3) =
+        (x_1 \to (x_1 \vee x_2)) \to x_3 = (\lnot x_1 \vee x_1 \vee x_2)
+        \to x_3 = (1 \vee x_2) \to x_3 = 1 \to x_3 = x_3\) -- фиктивные
+        переменные $x_1$, $x_2$
+
+        \item Данное выражение можно угадать, основываясь на 
+        соображениях симметрии:
+        \[ MAJ(x_1, x_2, x_3) = (x_1 \vee x_2) \wedge (x_2 \vee x_3)
+        \wedge (x_1 \vee x_3) = 00010111\]
+
+        \item Доказать: 
+        \[ \bigvee (x_i \oplus x_j) = (x_1 \vee \dots \vee 
+        x_n) \wedge (\lnot x_1 \vee \dots \vee \lnot x_n ) \]
+        \textbf{Доказательство:} \\
+        \textit{Случай 1.} Пусть \( \exists i, j: x_i \neq x_j \). Тогда 
+        \( x_i \oplus x_j = 1 \Rightarrow \bigvee (x_i \oplus x_j) = 1 \);
+        \( x_1 \vee \dots \vee x_n = 1\); \( \lnot x_1 \vee \dots
+        \vee \lnot x_n = 1 \), т. к. для этого случая
+        \( \exists i, j: x_i = 1, x_j = 0 \)\\
+        \textit{Случай 2.} \( \forall i, j: x_i = x_j \Rightarrow 
+        \bigvee (x_i \oplus x_j) = 0; (x_1 \vee \dots
+        \vee x_n) \wedge (\lnot x_1 \vee \dots \lnot x_n) = 
+        x_1 \wedge \lnot x_1 = 0 \)
+        \qed 
     \end{enumerate}
 \end{document}
