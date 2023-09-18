@@ -1,0 +1,42 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amsthm}
+
+\title{Домашнее задание 1. Введение в алгебру логики}
+\author{Балдин Виктор Б01-303}
+
+\begin{document}
+    \maketitle
+
+    \begin{enumerate}
+        \item Доказать, что
+            \[1\oplus x_1 \oplus x_2 = (x_1 \to x_2) \wedge (x_2 \to x_1)\]
+        \textbf{Доказательство: }
+        \[1 \oplus x_1 \oplus x2 = \lnot(x1 \oplus x2) = x_1\leftrightarrow
+        x_2\]
+        \[ (x_1 \to x_2) \wedge (x_2 \to x_1) = (\lnot x_1 
+        \vee x_2) \wedge (\lnot x_2 \vee x_1) = \lnot 
+        x_1 \wedge \lnot x_2 \vee x_1 \wedge x_2 = x_1 \leftrightarrow x_2\]
+        \qedsymbol{}
+        
+        \item Проверить:
+        \subitem (a) \( x \wedge (y \to z) = (x \wedge y) \to
+        (x \wedge z) \)
+        \subitem (b) \( x \oplus (y \leftrightarrow z) = (x \oplus y) 
+        \leftrightarrow (x \oplus z) \)
+
+        \textbf{Решение:}
+        \subitem (a) \( x \wedge (y \to z) = x \wedge (\lnot y \vee z)
+        = x \wedge \lnot y \vee x \wedge z \neq \lnot(x \wedge y) \vee x \wedge
+        z = (x \wedge y) \to (x \wedge z)\) -- \textit{ложно}
+        \subitem (b) \( x \oplus (y \leftrightarrow z) = 
+        \lnot(x \leftrightarrow (y \leftrightarrow z)) = 
+        \lnot(x \to (y \leftrightarrow z) \wedge (y \leftrightarrow z) \to
+        x) = \lnot(x \to (y \leftrightarrow z)) \vee 
+        \lnot((y \leftrightarrow z) \to x) = x \wedge (y \oplus z) \vee
+        (y \oplus z) \wedge x = x \wedge (y \oplus z) = \lnot ((x \wedge y)
+        \leftrightarrow (x \wedge z) )\)
+    \end{enumerate}
+\end{document}
