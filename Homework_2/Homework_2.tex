@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+\usepackage{amsthm, amsmath, amsfonts}
+
+\title{Домашнее задание 2. \\ Множества}
+\author{Балдин Виктор Б01-303}
+
+\begin{document}
+    \maketitle
+
+    \begin{enumerate}
+        \setcounter{enumi}{-1}
+        \item \( A = \{n|\exists k \in \mathbb N: n = k^2\} \neq \{
+        1, 4, 9\} \)
+
+        \item \( (A \setminus B) \cap ((A \cup B) \setminus (A \cap B)) \stackrel{?}{=}
+         A \setminus B\)
+        \begin{proof}
+            Перейдем к булевой алгебре: \\
+            \( (A \wedge \lnot B ) \wedge (A \vee B) \wedge \lnot(A \wedge B) =
+            (A \wedge \lnot B \wedge A \vee A \wedge \lnot B \wedge B) \wedge
+            (\lnot A \vee \lnot B) = (A \wedge \lnot B \vee 0) \wedge (\lnot A \vee
+            \lnot B) = A \wedge \lnot B \)
+        \end{proof}
+
+        \item \( ((A \setminus B) \cup (A \setminus C)) \cap
+        (A \setminus (B \cap C)) \stackrel{?}{=} A\setminus (B \cup C)\)
+        \begin{proof}
+            \( (A \setminus B) \cup (A \setminus C) = A \setminus
+            (B \cap C) \\
+            (A \setminus (B \cap C)) \cap A \setminus
+            (B \cap C) = A \setminus
+            (B \cap C) \neq A \setminus
+            (B \cup C)\) -- неверно
+            % Пусть $f$ -- левая часть, $g$ -- правая. \\
+            % \( X_f = X_{(A \setminus B) \cup (A \setminus C)}
+            % X_{A \setminus (B \cap C)} = ((X_{A \setminus B}
+            % + X_{A \setminus C}) - X_{A \setminus B}X_{A \setminus C})
+            % X_A(1 - X_{B \cup C} \)
+        \end{proof}
+
+        \item \begin{proof}
+            Перейдем к булевой алгебре: \\
+            \( (A \wedge B) \wedge \lnot C = A \wedge \lnot C \wedge B \neq A \wedge \lnot C \wedge B \wedge
+            \lnot C \)
+        \end{proof}
+
+        \item \begin{proof}
+            Перейдем к булевой алгебре: \\
+            \( (A \vee B) \wedge \lnot (A \wedge \lnot B) = A \wedge
+            B \vee B \wedge \lnot A \vee B = B \)
+        \end{proof}
+
+        \item \( ((x \in A) \rightarrow (x \in P)) \wedge ((x \in Q) \rightarrow (x \in A)) = (A \subseteq P)
+        \wedge (Q \subseteq A) \\ \)
+        Отрезок $A$ максимальной длины совпадает с $A_{max} = P = [10, 40]$; $A_{min} = Q = [20, 30]$.
+
+        \item Перейдем к характеристическим функциям данных множеств:
+        \begin{equation}
+            \left.
+            \begin{cases}
+                X_AX_X = X_BX_X \\
+                X_AX_Y = X_BX_Y
+            \end{cases}
+            \right. \Leftrightarrow
+            \left.
+            \begin{cases}
+                (X_A - X_B)X_X = 0 \\
+                (X_A - X_B)X_Y = 0
+            \end{cases}
+            \right. \Rightarrow
+        \end{equation}
+
+        \begin{equation}
+            (X_A - X_B)(X_X - X_Y) = 0
+        \end{equation}
+        Предположим, что нужное нам условие не выполняется:
+        \[ X_A + X_{Y \setminus X} - X_AX_{Y \setminus X} \neq X_B + X_{Y \setminus X} - X_BX_{Y \setminus X} \]
+        \[ (X_A - X_B)(1 - X_X(1 - X_Y)) \neq 0\]
+        \begin{equation}
+            \begin{cases}
+                X_A \neq X_B \\
+                X_X \neq X_Y
+            \end{cases}
+        \end{equation}
+        Противоречие условию (2) $\Rightarrow$  изначальное утверждение верно.
+        \item \( A_1 \supseteq \dots \supseteq A_n, A_1 \setminus A_4 =
+        A_6 \setminus A_9 \)\\
+        \( A_2 \setminus A_7 \stackrel{?}{=} A_3 \setminus A_8 \)
+        \begin{proof}
+            Перейдем к алгебре логики:
+            \begin{equation}
+                \begin{cases}
+                    A_n \rightarrow \dots \rightarrow A_1\\
+                    A_1 \wedge \lnot A_4 = A_6 \wedge \lnot A_9
+                \end{cases}
+            \end{equation}
+            До некоторого номера $k$ в последовательности $A_n$ будут только 1, а после
+            -- только 0 (случай, когда для всех $i$ $A_i = 0$ очевиден).
+            Отсюда 2-е уравнение системы выполняется либо при $4 \leq k \leq 6$, либо при
+            $k \geq 9$, тогда либо $A_2 = A_3 = 1, A_7 = A_8 = 0$ либо $A_2 =
+            A_3 = A_7 = A_8$.
+        \end{proof}
+
+        \item В булевой алгебре:
+        \begin{equation*}
+            (A \oplus B \leftrightarrow C \oplus D) \rightarrow
+            (A \wedge B \rightarrow C) = 1
+        \end{equation*}
+        Это неверно при $A = B = 1, C = D = 0$.
+    \end{enumerate}
+
+\end{document}
